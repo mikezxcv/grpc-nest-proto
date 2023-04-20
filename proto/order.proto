@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package order;
+
+service OrderService {
+    rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+    // rpc GetOrder(GetOrderRequest) returns (GetOrderResponse);
+    // rpc ListOrders(ListOrdersRequest) returns (ListOrdersResponse);
+    // rpc UpdateOrder(UpdateOrderRequest) returns (UpdateOrderResponse);
+    // rpc DeleteOrder(DeleteOrderRequest) returns (DeleteOrderResponse);
+}
+
+// create order
+message CreateOrderRequest {
+    int32 productId = 1;
+    int32 quantity = 2;
+    int32 userId = 3;
+    // campo agregado
+    string description = 4;
+  }
+  
+  message CreateOrderResponse {
+    int32 status = 1;
+    repeated string error = 2;
+    int32 id = 3;
+  }
+
